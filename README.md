@@ -1,7 +1,7 @@
 # PyDT
 References and Challenges for PyDT
 
-Clean Code References:
+## Clean Code References:
 Good Names
 Programs must be written for people to read, and only incidentally for machines to execute. —Hal Abelson and Gerald Jay Sussman, 1984
 
@@ -11,7 +11,7 @@ Source code files, namespaces, classes, templates, functions, arguments, variabl
 Few bits of advice for finding good names.
 Names Should Be Self-Explanatory
 
-Use simple but descriptive and self-explaining names.
+## Use simple but descriptive and self-explaining names.
 Too long and verbose names are not appropriate or desirable
 If the context is clear in which a variable is used, shorter and less descriptive names are possible
 If the variable is a member (attribute) of a class, for instance, the class’s name usually provides sufficient context for the variable
@@ -75,7 +75,7 @@ Functions
 CYCLOMATIC COMPLEXITY
 The quantitative software metric cyclomatic complexity was developed by Thomas J. McCabe, a U.S.- American mathematician, in 1976. The metric is a directly count of the number of linearly independent paths through a section of source code, for example, a function. If a function contains no if- or switch-statement, and no for- or while-loop, there is just one single path through the function and its cyclometric complexity is 1. If the function contains one if-statement representing a single decision point, there are two paths through the function and the cyclomatic complexity is 2. If cyclomatic complexity is high, the affected piece of code is typically more difficult to understand, test, and modify, and thus prone to bugs.
 
-Bad Smells in Functions
+## Bad Smells in Functions
 Too long,
 Has a high cyclomatic complexity
 Mixes different concerns,
@@ -108,7 +108,7 @@ If function use a complex type (e.g., a class) in a function’s argument list, 
 every argument must be processed somewhere inside of a function (if not, the argument is unnecessary and should be deleted immediately).
 Real functions should have as few arguments as possible. One argument is the ideal number. Member functions (methods) of a class often have no arguments. Usually those functions are manipulating the internal state of the object, or they are used to query something from the object.
 
-Avoid Flag Arguments
+## Avoid Flag Arguments
 A flag argument is a kind of argument that tells a function to perform a different operation depending on its value. Flag arguments are mostly of type bool, and sometimes even an enumeration
 
 - The basic problem with flag arguments is that it will introduce two (or sometimes even more) paths . It means that the function is not doing one thing exactly right. Results case of weak cohesion  and violates the Single Responsibility Principle.
@@ -136,14 +136,15 @@ Is it required to delete the object? If yes: How is the resource to be disposed?
 Must the object be deleted with delete, because it was allocated with the new operator somewhere inside the function? Or is the ownership of the resource object managed differently, so that a delete is forbidden and will result in undefined behavior
 if the caller does not handle the pointer correctly, it can lead to serious bugs, for example, memory leaks, double deletion, undefined behavior, and sometimes security vulnerabilities.
 
-Strategies to Avoid Regular Pointers
+## Strategies to Avoid Regular Pointers
 Prefer simple object construction on the stack instead of on the heap
 Use C++ 11 Move Semantics
 In a function’s argument list, use (const) references instead of pointers
 If it is inevitable to deal with a pointer to a resource, use a smart one
 Pay attention to const correctness. Use const as much as possible, and choose always a proper declaration of variables or objects as mutable or immutable
 
-Additional References
+## Additional References 
+
 https://github.com/thangchung/clean-code-dotnet
 
 https://github.com/zedr/clean-code-python
